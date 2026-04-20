@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '=== bryce-personal ===' && echo 'Goal: Personal life-management PWA for iPhone homescreen' && echo 'Branch: claude/web-interface-setup-CJqEC' && echo 'Stack: Plain HTML/CSS/JS, mobile-first' && echo 'Run: open index.html or npx serve .' && echo ''"
+          }
+        ]
+      }
+    ]
+  }
+}
