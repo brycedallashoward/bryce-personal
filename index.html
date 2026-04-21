@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#0f0f0f" />
+  <title>Bryce</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="/css/base.css" />
+</head>
+<body>
+  <header id="shell-header">
+    <span class="season-label" id="season-label"></span>
+  </header>
+  <nav id="shell-nav"></nav>
+  <main id="shell-content"></main>
+
+  <script type="module" src="/js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>

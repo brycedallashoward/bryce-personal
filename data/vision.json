@@ -1,0 +1,16 @@
+{
+  "goals": [
+    {
+      "id": "financial-foundation",
+      "title": "Build a financial foundation",
+      "description": "Establish savings habits, understand spending, and create a plan that compounds across years.",
+      "startedSeason": "spring-2026"
+    },
+    {
+      "id": "physical-consistency",
+      "title": "Build physical consistency",
+      "description": "Make gym attendance and healthy eating a default, not an effort.",
+      "startedSeason": "spring-2026"
+    }
+  ]
+}
