@@ -23,11 +23,17 @@ Minimal: plain HTML/CSS/JS. No build tooling. Each tool is a JS module. Routing 
 Tools never call external APIs. Data lives in versioned JSON files that Claude maintains:
 ```
 data/
-├── finance.json    # Financial snapshot (Claude-refreshed)
-├── fitness.json    # Workout log (Claude-assisted entry)
-└── vision.json     # Cross-season goals and progress
+├── preferences.json  # User preferences (Claude updates when Bryce states one)
+├── finance.json      # Financial snapshot (Claude-refreshed)
+├── fitness.json      # Workout log (Claude-assisted entry)
+└── vision.json       # Cross-season goals and progress
 ```
 **Claude is the ETL layer.** When the user asks for a data refresh (or on a cadence), Claude calls the relevant connector, transforms the result, writes to the appropriate JSON file, commits, and pushes. The PWA reads static files — no OAuth, no live API calls from the browser.
+
+### Preferences
+`data/preferences.json` is the canonical record of stated preferences. **When Bryce states a preference during any session, Claude must update this file and commit it.** This ensures preferences persist across sessions and devices rather than living only in Claude's context window. Current preferences:
+- `theme`: `"light"` — light mode is the default; dark mode only in specific justified contexts
+- `fitnessGoal`: `"4x / week"`
 
 ### Cross-Season Vision
 `data/vision.json` sits above seasons — persistent goals that individual seasons make progress toward. Each season references relevant vision items.
@@ -53,6 +59,7 @@ bryce-personal/
 ├── seasons/
 │   └── spring-2026.js  # Season config
 └── data/
+    ├── preferences.json
     ├── vision.json
     ├── fitness.json
     └── finance.json
