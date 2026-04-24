@@ -52,7 +52,19 @@ async def main():
         print("Reusing cached session.")
     except Exception:
         print("No valid session — logging in...")
-        await mm.login(email, password)
+        mfa_secret = os.environ.get("MONARCH_MFA_SECRET")
+        mfa_code = os.environ.get("MONARCH_MFA_CODE")
+        try:
+            await mm.login(email, password, mfa_secret_key=mfa_secret)
+        except Exception as e:
+            if "MFA" in str(e) or "mfa" in str(e).lower():
+                if mfa_code:
+                    await mm.multi_factor_authenticate(email, password, mfa_code)
+                else:
+                    code = input("Monarch MFA code: ").strip()
+                    await mm.multi_factor_authenticate(email, password, code)
+            else:
+                raise
         await mm.save_session(SESSION_FILE)
         print("Session saved.")
 
