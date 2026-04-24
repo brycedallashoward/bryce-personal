@@ -1,0 +1,6 @@
+# credentials & session
+.env
+.monarch_session
+
+# OS
+.DS_Store

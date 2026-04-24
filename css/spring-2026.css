@@ -1,4 +1,110 @@
 :root {
   --accent: #2e7d32;
   --accent-dim: #81c784;
+  --positive: #2e7d32;
+  --negative: #c62828;
+  --income: #1b5e20;
+  --expense: #b71c1c;
+}
+
+/* Net worth */
+.nw-total {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.nw-breakdown {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.nw-assets { color: var(--positive); }
+.nw-liabilities { color: var(--negative); }
+
+/* Cashflow */
+.cf-row {
+  display: flex;
+  gap: 0;
+}
+.cf-item {
+  flex: 1;
+}
+.cf-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.cf-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+.cf-income { color: var(--income); }
+.cf-expense { color: var(--expense); }
+.cf-positive { color: var(--positive); }
+.cf-negative { color: var(--negative); }
+
+/* Accounts */
+.acct-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.acct-row:last-child { border-bottom: none; }
+.acct-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.acct-inst {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.acct-balance {
+  font-size: 15px;
+  font-weight: 600;
+}
+.acct-liability { color: var(--negative); }
+
+/* Transactions */
+.txn-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.txn-row:last-child { border-bottom: none; }
+.txn-merchant {
+  font-size: 15px;
+  font-weight: 500;
+}
+.txn-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.txn-amount {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.txn-credit { color: var(--positive); }
+.txn-pending {
+  font-size: 11px;
+  background: #fff3e0;
+  color: #e65100;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.finance-refreshed {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 12px 0 4px;
 }

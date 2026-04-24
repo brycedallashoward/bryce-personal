@@ -1,6 +1,17 @@
 {
   "lastRefreshed": null,
+  "netWorth": {
+    "total": 0,
+    "assets": 0,
+    "liabilities": 0
+  },
   "accounts": [],
-  "transactions": [],
-  "snapshot": {}
+  "cashflow": {
+    "month": null,
+    "income": 0,
+    "expenses": 0,
+    "net": 0,
+    "savingsRate": 0
+  },
+  "recentTransactions": []
 }
