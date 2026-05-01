@@ -54,17 +54,12 @@ async def main():
         print("No valid session — logging in...")
         mfa_secret = os.environ.get("MONARCH_MFA_SECRET")
         mfa_code = os.environ.get("MONARCH_MFA_CODE")
+        from monarchmoney import RequireMFAException
         try:
             await mm.login(email, password, mfa_secret_key=mfa_secret)
-        except Exception as e:
-            if "MFA" in str(e) or "mfa" in str(e).lower():
-                if mfa_code:
-                    await mm.multi_factor_authenticate(email, password, mfa_code)
-                else:
-                    code = input("Monarch MFA code: ").strip()
-                    await mm.multi_factor_authenticate(email, password, code)
-            else:
-                raise
+        except RequireMFAException:
+            code = mfa_code or input("Monarch MFA code: ").strip()
+            await mm.multi_factor_authenticate(email, password, code)
         await mm.save_session(SESSION_FILE)
         print("Session saved.")
 
