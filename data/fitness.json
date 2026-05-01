@@ -1,4 +1,12 @@
 {
   "goal": "4x / week",
-  "sessions": []
+  "sessions": [
+    {
+      "id": "1",
+      "date": "2026-05-01",
+      "type": "Gym",
+      "notes": "",
+      "duration": null
+    }
+  ]
 }
